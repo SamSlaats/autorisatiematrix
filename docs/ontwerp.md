@@ -51,7 +51,9 @@ Alleen **direct lidmaatschap** van gebruikers telt. Geneste groepen binnen behee
 1. **Periodieke vergelijking** (`BackgroundService`, alleen melden) — eerste prioriteit voor v2.
 2. Rollen afleiden uit AD-attributen (indiensttreding, functiewissel, uitdiensttreding).
 3. Controle: uitgeschakelde accounts die nog lid zijn van groepen.
-4. Eventueel: webapp in de cloud met een losse on-prem agent.
+4. Afdelingen en teamleiders vastleggen, met een eigen app-rol `Teamleider` die alleen de eigen afdeling ziet.
+5. Periodieke hercertificering: teamleiders beoordelen de rechten van hun medewerkers, maar wijzigen niets zelf. Een "klopt niet" wordt een afwijking voor de Matrixbeheerder. Er wordt nooit automatisch ingetrokken. `Mail.Send` wordt beperkt tot één afzendermailbox.
+6. Eventueel: webapp in de cloud met een losse on-prem agent.
 
 ## Werkwijze: samen bouwen
 
