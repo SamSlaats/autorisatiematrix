@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Autorisatiematrix.Application/Autorisatiematrix.Application.csproj" />
+    <Project Path="src/Autorisatiematrix.Domain/Autorisatiematrix.Domain.csproj" />
+    <Project Path="src/Autorisatiematrix.Infrastructure/Autorisatiematrix.Infrastructure.csproj" />
+    <Project Path="src/Autorisatiematrix.Web/Autorisatiematrix.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Autorisatiematrix.Tests/Autorisatiematrix.Tests.csproj" />
+  </Folder>
+</Solution>
