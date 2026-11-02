@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Autorisatiematrix.Application\Autorisatiematrix.Application.csproj" />
+    <ProjectReference Include="..\Autorisatiematrix.Infrastructure\Autorisatiematrix.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
+  </PropertyGroup>
+
+</Project>
