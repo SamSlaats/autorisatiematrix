@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code ophalen
+        uses: actions/checkout@v7
+
+      - name: .NET installeren
+        uses: actions/setup-dotnet@v6
+        with:
+          global-json-file: global.json
+
+      - name: pakketten ophalen
+        run: dotnet restore
+
+      - name: Bouwen
+        run: dotnet build --no-restore
+
+      - name: Testen
+        run: dotnet test --no-build
+
