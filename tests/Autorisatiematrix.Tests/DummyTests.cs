@@ -9,7 +9,7 @@ public class DummyTests
     {
         int getal1 = 10;
         int getal2 = 20;
-        int verwachteUitkomst = 31;
+        int verwachteUitkomst = 30;
         
         int uitkomst = getal1 + getal2;
 
