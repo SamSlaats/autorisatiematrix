@@ -1,3 +1,9 @@
-﻿<AuthorizeView>
+﻿@page "/"
+
+<PageTitle>Autorisatiematrix</PageTitle>
+
+<h1>Autorisatiematrix</h1>
+
+<AuthorizeView>
     <p>Ingelogd als @context.User.Identity?.Name</p>
 </AuthorizeView>
