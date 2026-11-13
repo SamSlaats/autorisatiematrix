@@ -1,6 +1,7 @@
 using Autorisatiematrix.Web.Components;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,13 @@ builder.Services.AddAuthorization(options =>
     options.FallbackPolicy = options.GetPolicy("Matrixbeheerder");
 });
 
+builder.Services.AddCascadingAuthenticationState();
+
+builder.Services.Configure<CookieAuthenticationOptions>(
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    options => options.AccessDeniedPath = "/geen-toegang");
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,9 +37,12 @@ if (!app.Environment.IsDevelopment())
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseAntiforgery();
 
-app.MapStaticAssets();
+app.MapStaticAssets().AllowAnonymous();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
