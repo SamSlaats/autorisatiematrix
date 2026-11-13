@@ -1,7 +1,9 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Autorisatiematrix</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Autorisatiematrix</h1>
 
-Welcome to your new app.
+<AuthorizeView>
+    <p>Ingelogd als @context.User.Identity?.Name</p>
+</AuthorizeView>

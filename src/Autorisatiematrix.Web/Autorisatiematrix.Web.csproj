@@ -5,6 +5,10 @@
     <ProjectReference Include="..\Autorisatiematrix.Infrastructure\Autorisatiematrix.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Web" Version="4.18.0" />
+  </ItemGroup>
+
   <PropertyGroup>
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
     <UserSecretsId>9e981a21-c0f2-4134-9dd9-9ece42cf27f1</UserSecretsId>
