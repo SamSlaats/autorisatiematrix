@@ -6,7 +6,7 @@ namespace Autorisatiematrix.Tests;
 public class EffectieveRechtenTests
 {
     [Fact]
-    public void Bereken_ZondewrRollenEnUitzonderingen_GeeftGeenRechten()
+    public void Bereken_ZonderRollenEnUitzonderingen_GeeftGeenRechten()
     {
         // voorbereiden
         var rollen = new List<Rol>();
