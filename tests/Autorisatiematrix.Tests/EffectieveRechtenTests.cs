@@ -35,4 +35,20 @@ public class EffectieveRechtenTests
         // controleren
         rechten.ShouldBe(new[] { new Recht("AUTH-TMS-Gebruiker"), new Recht("AUTH-TMS-Planner") }, ignoreOrder: true);
     }
+    [Fact]
+    public void Bereken_TweeRollenMetGedeeldRecht_GeeftElkRechtEenKeer()
+    {
+        // voorbereiden
+        var planner = new Rol("Planner", new[] { new Recht("AUTH-TMS-Gebruiker"), new Recht("AUTH-TMS-Planner") });
+        var chauffeur = new Rol("Chauffeur", new[] { new Recht("AUTH-TMS-Gebruiker") });
+        var rollen = new List<Rol> { planner, chauffeur };
+        var uitzonderingen = new List<Uitzondering>();
+        var vandaag = new DateOnly(2026 ,11, 13);
+
+        // uitvoeren
+        var rechten = EffectieveRechten.Bereken(rollen, uitzonderingen, vandaag);
+
+        //controleren
+        rechten.ShouldBe(new[] { new Recht("AUTH-TMS-Gebruiker"), new Recht("AUTH-TMS-Planner") }, ignoreOrder: true);
+    }
 }
