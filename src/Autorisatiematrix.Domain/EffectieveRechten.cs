@@ -26,6 +26,6 @@ public static class EffectieveRechten
         }
 
 
-    return rechten;
+        return rechten;
     }
 }

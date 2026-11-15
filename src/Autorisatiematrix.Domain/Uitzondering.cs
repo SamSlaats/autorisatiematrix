@@ -7,7 +7,7 @@ public sealed class Uitzondering
         if (string.IsNullOrWhiteSpace(reden))
         {
             throw new ArgumentException("Een uitzondering moet een reden hebben.", nameof(reden));
-        };
+        }
         
         if (string.IsNullOrWhiteSpace(eigenaar))
         {
