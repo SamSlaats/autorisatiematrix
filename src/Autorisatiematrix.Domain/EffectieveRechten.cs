@@ -19,8 +19,13 @@ public static class EffectieveRechten
 
         foreach (var uitzondering in uitzonderingen)
         {
-            rechten.Add(uitzondering.Recht);
+            if (uitzondering.IsGeldigOp(vandaag))
+            {
+                rechten.Add(uitzondering.Recht);
+            }
         }
-        return rechten;
+
+
+    return rechten;
     }
 }

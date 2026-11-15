@@ -32,4 +32,9 @@ public sealed class Uitzondering
     public string Eigenaar { get; }
 
     public DateOnly Vervaldatum { get; }
+
+    public bool IsGeldigOp(DateOnly datum)
+    {
+        return datum < Vervaldatum;
+    }
 }

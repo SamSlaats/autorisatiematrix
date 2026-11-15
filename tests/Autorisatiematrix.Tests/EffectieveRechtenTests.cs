@@ -70,4 +70,40 @@ public class EffectieveRechtenTests
         rechten.ShouldBe(new[] { new Recht("AUTH-Boekhouding") }, ignoreOrder: true);
         
     }
+
+    [Fact]
+    public void Bereken_ZonderRollenMetVerlopenUitzondering_GeeftGeenRechten()
+    {
+        // Voorbereiden
+        var recht = new Recht("AUTH-Boekhouding");
+        var rollen = new List<Rol>();
+        var vervaldatum = new DateOnly(2026, 11, 1);
+        var boekhouding = new Uitzondering(recht, reden: "test", eigenaar: "Kevin Smit", vervaldatum);
+        var uitzonderingen = new List<Uitzondering>{ boekhouding };
+        var vandaag = new DateOnly(2026, 11, 13);
+
+        // Uitvoeren
+        var rechten = EffectieveRechten.Bereken(rollen, uitzonderingen, vandaag);
+
+        //controleren
+        rechten.ShouldBeEmpty();
+    }
+
+    [Fact]
+    public void Bereken_ZonderRollenMetUitzonderingDieVandaagVerloopt_GeeftGeenRechten()
+    {
+        // Voorbereiden
+        var recht = new Recht("AUTH-Boekhouding");
+        var rollen = new List<Rol>();
+        var vervaldatum = new DateOnly(2026, 11, 13);
+        var boekhouding = new Uitzondering(recht, reden: "test", eigenaar: "Kevin Smit", vervaldatum);
+        var uitzonderingen = new List<Uitzondering>{ boekhouding };
+        var vandaag = new DateOnly(2026, 11, 13);
+
+        // Uitvoeren
+        var rechten = EffectieveRechten.Bereken(rollen, uitzonderingen, vandaag);
+
+        //controleren
+        rechten.ShouldBeEmpty();
+    }
 }
