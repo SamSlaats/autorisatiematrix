@@ -7,6 +7,14 @@ public static class EffectieveRechten
         IEnumerable<Uitzondering> uitzonderingen,
         DateOnly vandaag)
     {
-        return new HashSet<Recht>();
+        var rechten = new HashSet<Recht>();
+            foreach (var rol in rollen)
+            {
+                foreach (var recht in rol.Rechten)
+                {
+                    rechten.Add(recht);
+                }
+            }
+        return rechten;
     }
 }
