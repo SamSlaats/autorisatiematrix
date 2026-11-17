@@ -7,5 +7,6 @@
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Autorisatiematrix.Tests/Autorisatiematrix.Tests.csproj" />
+    <Project Path="tests/Autorisatiematrix.IntegrationTests/Autorisatiematrix.IntegrationTests.csproj" />
   </Folder>
 </Solution>
