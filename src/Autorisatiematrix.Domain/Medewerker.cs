@@ -20,7 +20,7 @@ public sealed class Medewerker
 
     public IReadOnlyCollection<Uitzondering> Uitzonderingen => _uitzonderingen;
 
-    public void WijRolToe(Rol rol)
+    public void WijsRolToe(Rol rol)
     {
         _rollen.Add(rol);
     }

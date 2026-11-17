@@ -11,7 +11,7 @@ public class MedewerkerTests
         // Voorbereiden
         var planner = new Rol("Planner", new[] { new Recht("AUTH-TMS-Gebruiker"), new Recht("AUTH-TMS-Planner") });
         var lisa = new Medewerker("Lisa de Vries");
-        lisa.WijRolToe(planner);
+        lisa.WijsRolToe(planner);
         var vandaag = new DateOnly(2026, 11, 13);
         
         // Uitvoeren
