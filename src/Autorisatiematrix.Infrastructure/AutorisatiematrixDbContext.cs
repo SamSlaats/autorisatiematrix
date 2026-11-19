@@ -11,6 +11,7 @@ public sealed class AutorisatiematrixDbContext : DbContext
     }
 
     public DbSet<Rol> Rollen => Set<Rol>();
+    public DbSet<Medewerker> Medewerkers => Set<Medewerker>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

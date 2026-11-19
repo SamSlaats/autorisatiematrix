@@ -11,10 +11,21 @@ public sealed class Medewerker
         {
             throw new ArgumentException("Een medewerker moet een naam hebben.", nameof(naam));
         }
+        Id = Guid.NewGuid();
+        Naam = naam;
+    }
+
+    // Alleen voor EF Core, bij het teruglezen uit de database.
+
+    private Medewerker(Guid id, string naam)
+    {
+        Id = id;
         Naam = naam;
     }
 
     public string Naam { get; }
+
+    public Guid Id { get; }
 
     public IReadOnlyCollection<Rol> Rollen => _rollen;
 
