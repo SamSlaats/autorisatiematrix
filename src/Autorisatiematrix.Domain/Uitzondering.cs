@@ -18,13 +18,26 @@ public sealed class Uitzondering
         {
             throw new ArgumentException("Een uitzondering moet een vervaldatum hebben.", nameof(vervaldatum));
         }
-
+        Id = Guid.NewGuid();
         Recht = recht;
         Reden = reden;
         Eigenaar = eigenaar;
         Vervaldatum = vervaldatum;
     }
+
+    // EF Core vult Recht na het bouwen, via de complex property-configuratie.
     
+    private Uitzondering(Guid id, string reden, string eigenaar, DateOnly vervaldatum)
+    {
+        Id = id;
+        Reden = reden;
+        Eigenaar = eigenaar;
+        Vervaldatum = vervaldatum;
+        Recht = null!;
+    }
+    
+    public Guid Id { get; }
+
     public Recht Recht { get; }
 
     public string Reden { get; }
